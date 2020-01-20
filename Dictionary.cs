@@ -7,22 +7,32 @@ namespace Dictionnaires
     {
         static void Main(string[] args)
         {
-            Dictionary<string, char> dictionary = new Dictionary<string, char>();
+            Dictionary<char, List<string>> dictionary = new Dictionary<char, List<string>>();
 
-            dictionary["FirstLetter"] = 'a';
-            dictionary["SecondLetter"] = 'b';
-            dictionary["ThirdLetter"] = 'c';
+            dictionary['a'] = new List<string> { "Alakhazam", "Astragan", "Arrestation" };
+            dictionary['b'] = new List<string> { "Barbiturique", "Balbutiement", "Bedouin" };
+            dictionary['c'] = new List<string> { "Caractère", "Croquant", "Circonscription" };
 
-            foreach (KeyValuePair<string, char> kvp in dictionary)
+
+            foreach (char key in dictionary.Keys)
             {
-                Console.WriteLine(kvp.Key, kvp.Value);
+                foreach (string item in dictionary[key])
+                {
+                    Console.Write(item);
+                }
+                Console.WriteLine();
             }
 
-            dictionary.Remove("SecondLetter");
+            dictionary.Remove('c');
+            Console.WriteLine();
 
-            foreach (KeyValuePair<string, char> kvp in dictionary)
+            foreach (char key in dictionary.Keys)
             {
-                Console.WriteLine(kvp.Key, kvp.Value);
+                foreach (string item in dictionary[key])
+                {
+                    Console.Write("{0} ", item);
+                }
+                Console.WriteLine();
             }
         }
 

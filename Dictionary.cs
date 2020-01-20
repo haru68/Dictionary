@@ -30,7 +30,7 @@ namespace Dictionnaires
             {
                 foreach (string item in dictionary[key])
                 {
-                    Console.Write("{0} ", item);
+                    Console.Write(item);
                 }
                 Console.WriteLine();
             }
